@@ -10,3 +10,12 @@ services:
       - MYSQL_ROOT_PASSWORD=pass
     ports:
       - "3306:3306"
+
+  redis:
+    image: redis:5
+    volumes:
+      - "./data/redis:/data"
+    container_name: redis
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
